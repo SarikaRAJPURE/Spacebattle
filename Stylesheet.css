@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
+  grid-template-rows: 2fr 2fr 2fr;
+  grid-gap: 20px;
+  height: 100vh;
+  font-family: Helvetica;
+  color: aliceblue;
+  background-image: url("./images/space-image.jpg");
+}
+#my-ship {
+  grid-column: span 1;
+}
+#game-msg-div {
+  border: thick solid blue;
+  font-size: 40px;
+  grid-column: span 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#btn {
+  width: 250px;
+  height: 50px;
+  padding: 10px;
+  font-size: 25px;
+}
+h3 {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+}
+.enemyship,
+#btn-group,
+.yesno {
+  visibility: hidden;
+}
+.div-border-red {
+  color: red;
+  border: 1px solid white;
+}
+.div-border-green {
+  color: green;
+  border: 1px solid white;
+}
+.div-white {
+  color: white;
+}
+#msg-div {
+  font-size: 50px;
+}
+#empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-blend-mode:color-burn;
+  
+  
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Battle</title>
+    <link rel="stylesheet" href="Stylesheet.css">
+    <script src="index.js" defer></script>
+</head>
+
+<body onload="loaddata()">
+
+    <!-- row1 -->
+    <div id="empty">
+        <div id="logo"><img src="./images/space-logo.png" alt=""></div>
+    </div>
+
+    <div id="ship1" class="enemyship">
+        <h1 id="enemy1-name">name</h1>
+        <img id="Enemy1" src="./images/enemy_ship.png" alt="Enemy_Ship1">
+        <div class="enemy1-data">
+            <h3>Hull : <p id="enemy1-hull"></p>
+            </h3>
+            <h3>Firepower : <p id="enemy1-firepower"></p>
+            </h3>
+            <h3>Accuracy : <p id="enemy1-accuracy">
+            </h3>
+        </div>
+    </div>
+    <div id="ship2" class="enemyship">
+        <h1 id="enemy2-name">name</h1>
+        <img id="Enemy2" src="./images/enemy_ship.png" alt="Enemy_Ship2">
+        <div class="enemy2-data">
+            <h3>Hull : <p id="enemy2-hull"></p>
+            </h3>
+            <h3>Firepower : <p id="enemy2-firepower"></p>
+            </h3>
+            <h3>Accuracy : <p id="enemy2-accuracy"></p>
+            </h3>
+        </div>
+    </div>
+    <div id="ship3" class="enemyship">
+        <h1 id="enemy3-name">name</h1>
+        <img id="Enemy3" src="./images/enemy_ship.png" alt="Enemy_Ship3">
+        <div class="enemy3-data">
+            <h3>Hull : <p id="enemy3-hull"></p>
+            </h3>
+            <h3>Firepower : <p id="enemy3-firepower"></p>
+            </h3>
+            <h3>Accuracy : <p id="enemy3-accuracy">
+            </h3>
+        </div>
+    </div>
+
+    <!-- row2 -->
+    <div id="my-ship">
+        <h1 id="my-ship-name">name</h1>
+        <img src="./images/USS_Ship.png" alt="USS_Ship">
+        <button id="btn">Start Game</button>
+        <div class="USS-ship-data">
+            <h3>Hull : <p id="my-ship-hull"></p>
+            </h3>
+            <h3>Firepower : <p id="my-ship-firepower"></p>
+            </h3>
+            <h3>Accuracy : <p id="my-ship-accuracy"></p>
+            </h3>
+        </div>
+    </div>
+    <div id="game-msg-div">
+        <div id="msg"> </div>
+        <div id="btn-group">
+            <table id="tablemsg">
+                <tbody>
+                    <tr>
+                        <td colspan="2" id="msg-div">Spacebattle!</td>
+                    </tr>
+                    <tr class="hiderow">
+                        <td colspan="2">Would you like to <em style="color: red;">Attack</em> the alien ship or <em
+                                style="color: green;">Retreat</em> from battle?</td>
+                    </tr>
+                    <tr class="hiderow">
+                        <td><button id="attack" style="height: 50px; width: 250px;padding: 10px;
+                            font-size: 25px;">Attack</button><button id="retreat" style="height: 50px; width: 250px;padding: 10px;
+                            font-size: 25px;">Retreat</button></td>
+                    </tr>
+                    <tr class="yesno">
+                        <td><button id="yesbtn" style="height: 50px; width: 250px;padding: 10px;
+                            font-size: 25px;">Yes</button><button onclick="pauseAudio()" id="nobtn" style="height: 50px; width: 250px;padding: 10px;
+                            font-size: 25px;">No</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- row3 -->
+    <div id="empty">
+    </div>
+    <div id="ship4" class="enemyship">
+        <h1 id="enemy4-name">name</h1>
+        <img id="Enemy4" src="./images/enemy_ship.png" alt="Enemy_Ship4">
+        <div class="enemy4-data">
+            <h3>Hull : <p id="enemy4-hull"></p>
+            </h3>
+            <h3>Firepower : <p id="enemy4-firepower"></p>
+            </h3>
+            <h3>Accuracy : <p id="enemy4-accuracy">
+            </h3>
+        </div>
+    </div>
+    <div id="ship5" class="enemyship">
+        <h1 id="enemy5-name">name</h1>
+        <img id="Enemy5" src="./images/enemy_ship.png" alt="Enemy_Ship5">
+        <div class="enemy5-data">
+            <h3>Hull : <p id="enemy5-hull"></p>
+            </h3>
+            <h3>Firepower : <p id="enemy5-firepower"></p>
+            </h3>
+            <h3>Accuracy : <p id="enemy5-accuracy">
+            </h3>
+        </div>
+    </div>
+    <div id="ship6" class="enemyship">
+        <h1 id="enemy6-name">name</h1>
+        <img id="Enemy6" src="./images/enemy_ship.png" alt="Enemy_Ship6">
+        <div class="enemy6-data">
+            <h3>Hull : <p id="enemy6-hull"></p>
+            </h3>
+            <h3>Firepower : <p id="enemy6-firepower"></p>
+            </h3>
+            <h3>Accuracy : <p id="enemy6-accuracy">
+            </h3>
+        </div>
+    </div>
+</body>
+
+</html>
