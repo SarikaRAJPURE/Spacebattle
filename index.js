@@ -201,9 +201,9 @@ let shipsBattle = (ship1, ship2) => {
  */
 
 //4.set sound 
-let shootSound = new Audio("/spacebattle/sounds/shoot.wav");
-let enemydeathSound = new Audio("/spacebattle/sounds/enemy-death.wav");
-let backgroundsound= new Audio("/spacebattle/sounds/backgroundmusic.mp3");
+let shootSound = new Audio("./sounds/shoot.wav");
+let enemydeathSound = new Audio("./sounds/enemy-death.wav");
+let backgroundsound= new Audio("./sounds/backgroundmusic.mp3");
 
 document.getElementById('yesbtn').addEventListener('click', () => {
     console.log("%c Spacebattle", "font-size: 40px");
