@@ -14,6 +14,9 @@ body {
 #my-ship {
   grid-column: span 1;
 }
+#msg{
+  display: flex;
+}
 #game-msg-div {
   border: thick solid blue;
   font-size: 40px;
