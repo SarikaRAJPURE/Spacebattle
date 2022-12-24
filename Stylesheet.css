@@ -15,7 +15,7 @@ body {
   grid-column: span 1;
 }
 #msg{
-  display: flex;
+  margin:0 auto;
 }
 #game-msg-div {
   border: thick solid blue;
