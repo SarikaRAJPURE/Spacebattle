@@ -51,9 +51,7 @@ h3 {
 .div-white {
   color: white;
 }
-#msg-div {
-  font-size: 50px;
-}
+
 #empty {
   display: flex;
   justify-content: center;
