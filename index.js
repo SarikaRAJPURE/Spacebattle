@@ -52,9 +52,7 @@ EnemyFleet.createalienShips();
 //console.log(EnemyFleet.alienShips);
 let fleet = EnemyFleet.alienShips;
 let loaddata = () => {
-    //1. Set message to start game
-    document.getElementById('msg').innerText = "To Begin Space Battle press Start Game!";
-    //2. set data of my spaceship on web page
+    //1. set data of my spaceship on web page
     let myshipname = document.getElementById('my-ship-name');
     myshipname.innerText = USSHelloWorld.name;
     let myshiphull = document.getElementById('my-ship-hull');
@@ -63,7 +61,7 @@ let loaddata = () => {
     myshipfirepower.innerText = USSHelloWorld.firepower;
     let myshipaccuracy = document.getElementById('my-ship-accuracy');
     myshipaccuracy.innerText = USSHelloWorld.accuracy;
-    //3. set data of alien spaceships on web page
+    //2. set data of alien spaceships on web page
     for (let shipNum = 0; shipNum < EnemyFleet.alienShips.length; shipNum++) {
         let enemyshipdiv = 'ship' + (shipNum + 1);
         let enemydiv = document.getElementById(enemyshipdiv);
@@ -201,9 +199,9 @@ let shipsBattle = (ship1, ship2) => {
  */
 
 //4.set sound 
-const shootSound = new Audio("/Space Battle/sounds/shoot.wav");
-const enemydeathSound = new Audio("/Space Battle/sounds/enemy-death.wav");
-const backgroundsound= new Audio("/Space Battle/sounds/backgroundmusic.mp3");
+const shootSound = new Audio("../sounds/shoot.wav");
+const enemydeathSound = new Audio("../sounds/enemy-death.wav");
+const backgroundsound= new Audio("../sounds/backgroundmusic.mp3");
 
 document.getElementById('yesbtn').addEventListener('click', () => {
     console.log("%c Spacebattle", "font-size: 40px");
