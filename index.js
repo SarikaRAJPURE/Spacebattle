@@ -52,6 +52,7 @@ EnemyFleet.createalienShips();
 //console.log(EnemyFleet.alienShips);
 let fleet = EnemyFleet.alienShips;
 let loaddata = () => {
+    document.getElementById('msg').innerText=`This time aliens have send ${fleet.length} ships to attack Earth, start the game to attack them.`;
     //1. set data of my spaceship on web page
     let myshipname = document.getElementById('my-ship-name');
     myshipname.innerText = USSHelloWorld.name;
@@ -126,6 +127,7 @@ let shipsBattle = (ship1, ship2) => {
             }
             // Check if the ship being attacked is still alive
             if (ships[beingAttacked].hull <= 0) {
+                //play sound
                 enemydeathSound.play();
                 //replace image with dead ship image
                 let imagediv = 'Enemy' + (shipNum + 1);
@@ -135,16 +137,21 @@ let shipsBattle = (ship1, ship2) => {
                 document.getElementById('msg-div').setAttribute("class", "div-border-red");
                 if (ships[beingAttacked] === USSHelloWorld) {
                     ///If the USS SHip is being attacked and is destroyed THEN alert player Game is Over
-                    alert("Game Over!!!");
+                    let myshiphull = document.getElementById('my-ship-hull');
+                    myshiphull.innerText = USSHelloWorld.hull;
+                    myshiphull.style.color = "red";
+                    document.getElementById('msg-div').innerText =`${ships[beingAttacked].name} has been destroyed!\nYou lose!\nWould you like to play again?`
+                   // alert("Game Over!!!");
                 } else if (ships[beingAttacked].name === fleet[fleet.length - 1].name) {
-                    document.getElementById('msg-div').innerText = `${ships[beingAttacked].name} destroyed!\nAlien fleet has been destroyed!\nYou have been victorious!`;
+                    document.getElementById('msg-div').innerText = `Alien fleet has been destroyed!\nYou win!\nWould you like to play again?`;
+                    //${ships[beingAttacked].name} destroyed!\n
                     document.getElementById('msg-div').setAttribute("class", "div-white");
                     const hiddenItems = document.querySelectorAll(".hiderow");
                     for (let i = 0; i < hiddenItems.length; i++) {
                         hiddenItems[i].style.display = "none";
                     }
-                    document.getElementById('msg-div').innerText =
-                        "Game Over\nWould you like to play again?";
+                    /* document.getElementById('msg-div').innerText =
+                        "Game Over\nWould you like to play again?"; */
                     document.querySelector('.yesno').style.visibility = "visible";
 
                     /* --------------
@@ -225,8 +232,10 @@ document.getElementById('retreat').addEventListener('click', () => {
     location.reload();
 });
 let startGame = () => {
+    //background sound starts
     backgroundsound.play();
-    document.getElementById('msg').style.display = "none";
+    
+    document.getElementById('msg').style.display = "none"; 
     console.log("%c Spacebattle", "font-size: 40px");
     document.getElementById('msg-div').innerText = `Alien fleet approaching!`;
     document.getElementById('btn-group').style.visibility = "visible";
