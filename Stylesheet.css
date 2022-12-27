@@ -11,10 +11,6 @@ grid-gap: 5px;
 height: 100vh;
 margin: 10px;
  ----------------------- */
-  /* grid-template-columns: 2fr 2fr 2fr 2fr;
-  grid-template-rows: 2fr 2fr 2fr 2fr;
-  grid-gap: 20px;
-  height: 100vh; */
   font-family: Helvetica;
   color: aliceblue;
   background-color: rgb(1, 1, 7);
@@ -51,7 +47,6 @@ p {
 }
 
 #game-msg-div {
-  /* border: thick solid blue; */
   grid-column: span 3;
   display: flex;
   justify-content: center;

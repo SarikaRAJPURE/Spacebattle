@@ -125,7 +125,7 @@ let shipsBattle = (ship1, ship2) => {
                     "color: red; font-size: 16px;"
                 );
             }
-            // Check if the ship being attacked is still alive
+           
             if (ships[beingAttacked].hull <= 0) {
                 //play sound
                 enemydeathSound.play();
@@ -135,12 +135,15 @@ let shipsBattle = (ship1, ship2) => {
                 enemydeathSound.play();
                 document.getElementById('msg-div').innerText = `${ships[beingAttacked].name} has been destroyed`;
                 document.getElementById('msg-div').setAttribute("class", "div-border-red");
+                
+
+                
                 if (ships[beingAttacked] === USSHelloWorld) {
                     ///If the USS SHip is being attacked and is destroyed THEN alert player Game is Over
                     let myshiphull = document.getElementById('my-ship-hull');
                     myshiphull.innerText = USSHelloWorld.hull;
                     myshiphull.style.color = "red";
-                    document.getElementById('msg-div').innerText =`${ships[beingAttacked].name} has been destroyed!\nYou lose!\nWould you like to play again?`
+                    document.getElementById('msg-div').innerText =`${ships[beingAttacked].name} has been destroyed!\nYou lose,Game Over! \nWould you like to play again?`
                    // alert("Game Over!!!");
                 } else if (ships[beingAttacked].name === fleet[fleet.length - 1].name) {
                     document.getElementById('msg-div').innerText = `Alien fleet has been destroyed!\nYou win!\nWould you like to play again?`;
@@ -165,6 +168,14 @@ let shipsBattle = (ship1, ship2) => {
                     let myshiphull = document.getElementById('my-ship-hull');
                     myshiphull.innerText = USSHelloWorld.hull;
                     myshiphull.style.color = "red";
+                    /* to remove ship from dom 
+                    let shipdiv = 'ship' + (shipNum + 1);
+                window.setTimeout(function() {
+                    // remove current .ship element from DOM
+                    document.getElementById('shipdiv').remove();
+                    // console log game over
+                   // $("#fleet").after("<h1 class='message'>GAME OVER</h1><h2>Refresh the page to play again</h2>");
+                }, 1000) */
                     //replace image with dead ship image
                     let imagediv = 'Enemy' + (shipNum + 1);
                     let imagesrc = document.getElementById(imagediv).setAttribute('src', './images/enemy_ship_dead.png');
@@ -206,9 +217,9 @@ let shipsBattle = (ship1, ship2) => {
  */
 
 //4.set sound 
-const shootSound = new Audio("../sounds/shoot.wav");
-const enemydeathSound = new Audio("../sounds/enemy-death.wav");
-const backgroundsound= new Audio("../sounds/backgroundmusic.mp3");
+const shootSound = new Audio("../Spacebattle/sounds/shoot.wav");
+const enemydeathSound = new Audio("../Spacebattle/sounds/enemy-death.wav");
+const backgroundsound= new Audio("../Spacebattle/sounds/backgroundmusic.mp3");
 
 document.getElementById('yesbtn').addEventListener('click', () => {
     console.log("%c Spacebattle", "font-size: 40px");
