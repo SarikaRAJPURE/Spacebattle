@@ -1,4 +1,5 @@
 // SPACE BATTLE GAME
+
 // Generate a random number between min and max, including both min and max
 const randIntNum = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -18,7 +19,6 @@ class Ship {
     }
     attack(target) {
         if (Math.random() < this.accuracy) {
-            //shipName.hull -= this.firepower;
             console.log(`%c You HIT the ${target.name} !!!`,
                 "color: red; border: 1px solid grey; font-size: 18px;");
             return true;
@@ -89,7 +89,6 @@ let shipsBattle = (ship1, ship2) => {
     let attacking = 0;
     let beingAttacked = 1;
     let temp;
-    //shootSound.play();
     while (ships[beingAttacked].hull > 0) {
         //While the hull is greater than 0...Keep attacking
         if (ships[beingAttacked].hull > 0) {
@@ -101,7 +100,7 @@ let shipsBattle = (ship1, ship2) => {
             // Generate the attack on the enemy ship
             attack = ships[attacking].attack(ships[beingAttacked]);
             if (attack === true) {
-                //shootSound.play();
+                //Play sound;
                 enemydeathSound.play();
                 //update hull on web page                
                 let hulldiv = 'enemy' + (shipNum + 1) + '-hull';
@@ -135,20 +134,23 @@ let shipsBattle = (ship1, ship2) => {
                 enemydeathSound.play();
                 document.getElementById('msg-div').innerText = `${ships[beingAttacked].name} has been destroyed`;
                 document.getElementById('msg-div').setAttribute("class", "div-border-red");
-                
-
-                
+                                
                 if (ships[beingAttacked] === USSHelloWorld) {
-                    ///If the USS SHip is being attacked and is destroyed THEN alert player Game is Over
+                    ///If the USS SHip is being attacked and is destroyed then alert player Game is Over
                     let myshiphull = document.getElementById('my-ship-hull');
                     myshiphull.innerText = USSHelloWorld.hull;
                     myshiphull.style.color = "red";
                     document.getElementById('msg-div').innerText =`${ships[beingAttacked].name} has been destroyed!\nYou lose,Game Over! \nWould you like to play again?`
+                    document.getElementById('msg-div').setAttribute("class", "div-border-lose");
+                    const hiddenItems = document.querySelectorAll(".hiderow");
+                    for (let i = 0; i < hiddenItems.length; i++) {
+                        hiddenItems[i].style.display = "none";
+                    }
+                    document.querySelector('.yesno').style.visibility = "visible";
                    // alert("Game Over!!!");
                 } else if (ships[beingAttacked].name === fleet[fleet.length - 1].name) {
+                    document.getElementById('msg-div').setAttribute("class", "div-border-win");
                     document.getElementById('msg-div').innerText = `Alien fleet has been destroyed!\nYou win!\nWould you like to play again?`;
-                    //${ships[beingAttacked].name} destroyed!\n
-                    document.getElementById('msg-div').setAttribute("class", "div-white");
                     const hiddenItems = document.querySelectorAll(".hiderow");
                     for (let i = 0; i < hiddenItems.length; i++) {
                         hiddenItems[i].style.display = "none";
@@ -184,6 +186,7 @@ let shipsBattle = (ship1, ship2) => {
                         } Hull: ${ships[beingAttacked].hull}`
                     //\nWould you like to ATTACK the next ship or RETREAT from battle?
                     document.getElementById('msg-div').setAttribute("class", "div-border-red");
+                    
                     document.getElementById('btn-group').style.visibility = "visible";
                     /* playerResponse = prompt(
                         `${ship2.name} destroyed!!\n${USSHelloWorld.name
@@ -223,7 +226,7 @@ const backgroundsound= new Audio("../Spacebattle/sounds/backgroundmusic.mp3");
 
 document.getElementById('yesbtn').addEventListener('click', () => {
     console.log("%c Spacebattle", "font-size: 40px");
-    document.getElementById('msg-div').innerText = `Would you like to play again`;
+    //document.getElementById('msg-div').innerText = `Would you like to play again`;
     location.reload();
 });
 

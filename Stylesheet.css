@@ -3,18 +3,9 @@
 }
 
 body {
-  /* display: grid;
-
-grid-template-columns:1fr 1fr 1fr 1fr;
-grid-template-rows: 50px 1fr 1fr 1fr;
-grid-gap: 5px;
-height: 100vh;
-margin: 10px;
- ----------------------- */
   font-family: Helvetica;
   color: aliceblue;
   background-color: rgb(1, 1, 7);
-
 }
 
 #container {
@@ -56,9 +47,9 @@ p {
 button {
   padding: 10px 20px;
   border-radius: 20px;
-  border:3px solid blue;
+  border: 3px solid blue;
   color: aliceblue;
-  background: none; 
+  background: none;
 }
 
 h5 {
@@ -73,7 +64,17 @@ h5 {
 }
 
 .div-border-red {
+  color: white;
+  border: 1px solid red;
+}
+
+.div-border-lose {
   color: red;
+  border: 1px solid white;
+}
+
+.div-border-win {
+  color: gold;
   border: 1px solid white;
 }
 
