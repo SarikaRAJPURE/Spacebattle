@@ -52,7 +52,7 @@ EnemyFleet.createalienShips();
 //console.log(EnemyFleet.alienShips);
 let fleet = EnemyFleet.alienShips;
 let loaddata = () => {
-    document.getElementById('msg').innerText=`Aliens have sent ${fleet.length} ships to attack Earth, start the game to attack them.`;
+    document.getElementById('msg').innerText = `Aliens have sent ${fleet.length} ships to attack Earth, start the game to attack them.`;
     //1. set data of my spaceship on web page
     let myshipname = document.getElementById('my-ship-name');
     myshipname.innerText = USSHelloWorld.name;
@@ -124,30 +124,30 @@ let shipsBattle = (ship1, ship2) => {
                     "color: red; font-size: 16px;"
                 );
             }
-           
+
             if (ships[beingAttacked].hull <= 0) {
                 //play sound
                 enemydeathSound.play();
-                //replace image with dead ship image
+                //replace image with dead alien ship image
                 let imagediv = 'Enemy' + (shipNum + 1);
                 let imagesrc = document.getElementById(imagediv).setAttribute('src', './images/enemy_ship_dead.png');
                 enemydeathSound.play();
                 document.getElementById('msg-div').innerText = `${ships[beingAttacked].name} has been destroyed`;
                 document.getElementById('msg-div').setAttribute("class", "div-border-red");
-                                
+
                 if (ships[beingAttacked] === USSHelloWorld) {
                     ///If the USS SHip is being attacked and is destroyed then alert player Game is Over
                     let myshiphull = document.getElementById('my-ship-hull');
                     myshiphull.innerText = USSHelloWorld.hull;
                     myshiphull.style.color = "red";
-                    document.getElementById('msg-div').innerText =`${ships[beingAttacked].name} has been destroyed!\nYou lose,Game Over! \nWould you like to play again?`
+                    document.getElementById('msg-div').innerText = `${ships[beingAttacked].name} has been destroyed!\nYou lose,Game Over! \nWould you like to play again?`
+                    //set the style for the message div
                     document.getElementById('msg-div').setAttribute("class", "div-border-lose");
                     const hiddenItems = document.querySelectorAll(".hiderow");
                     for (let i = 0; i < hiddenItems.length; i++) {
                         hiddenItems[i].style.display = "none";
                     }
                     document.querySelector('.yesno').style.visibility = "visible";
-                   // alert("Game Over!!!");
                 } else if (ships[beingAttacked].name === fleet[fleet.length - 1].name) {
                     document.getElementById('msg-div').setAttribute("class", "div-border-win");
                     document.getElementById('msg-div').innerText = `Alien fleet has been destroyed!\nYou win!\nWould you like to play again?`;
@@ -155,47 +155,22 @@ let shipsBattle = (ship1, ship2) => {
                     for (let i = 0; i < hiddenItems.length; i++) {
                         hiddenItems[i].style.display = "none";
                     }
-                    /* document.getElementById('msg-div').innerText =
-                        "Game Over\nWould you like to play again?"; */
                     document.querySelector('.yesno').style.visibility = "visible";
-
-                    /* --------------
-                    alert(
-                        `%c ${ships[beingAttacked].name} destroyed!\nAlien fleet has been destroyed!\nYou have been victorious!`,
-                        "color: green;"
-                    ); */
                 } //If USS destroys alien fleet, then alert player of victory
                 else {
                     // upadate USS hull
                     let myshiphull = document.getElementById('my-ship-hull');
                     myshiphull.innerText = USSHelloWorld.hull;
                     myshiphull.style.color = "red";
-                    /* to remove ship from dom 
-                    let shipdiv = 'ship' + (shipNum + 1);
-                window.setTimeout(function() {
-                    // remove current .ship element from DOM
-                    document.getElementById('shipdiv').remove();
-                    // console log game over
-                   // $("#fleet").after("<h1 class='message'>GAME OVER</h1><h2>Refresh the page to play again</h2>");
-                }, 1000) */
                     //replace image with dead ship image
                     let imagediv = 'Enemy' + (shipNum + 1);
                     let imagesrc = document.getElementById(imagediv).setAttribute('src', './images/enemy_ship_dead.png');
                     document.getElementById('msg-div').innerText = `${ships[beingAttacked].name} destroyed!!\n${USSHelloWorld.name
                         } Hull: ${USSHelloWorld.hull}\n${ships[beingAttacked].name
                         } Hull: ${ships[beingAttacked].hull}`
-                    //\nWould you like to ATTACK the next ship or RETREAT from battle?
                     document.getElementById('msg-div').setAttribute("class", "div-border-red");
-                    
                     document.getElementById('btn-group').style.visibility = "visible";
-                    /* playerResponse = prompt(
-                        `${ship2.name} destroyed!!\n${USSHelloWorld.name
-                        } Hull: ${USSHelloWorld.hull
-                        }\nWould you like to ATTACK the next ship or RETREAT from battle?`,
-                        ""
-                    ); */
-                    shipNum += 1; //PROMPT PLAYER IF THEY WNAT TO CONTINUE OR RETREAT
-                    //--checkPlayerPrompt();
+                    shipNum += 1;
                     return;
                 }
             } else {
@@ -208,25 +183,13 @@ let shipsBattle = (ship1, ship2) => {
     }
 };
 
-// Function to check player prompts
-/* let checkPlayerPrompt = () => {
-    let responseUpperCase = playerResponse.toUpperCase();
-    if (responseUpperCase === "ATTACK") {
-        shipsBattle(USSHelloWorld, fleet[shipNum]);
-    } else if (responseUpperCase === "RETREAT") {
-        alert("Game Over! You Live to Fight Again Another Day.");
-    }
-};
- */
-
-//4.set sound 
+//4.set sound for game
 const shootSound = new Audio("../Spacebattle/sounds/shoot.wav");
 const enemydeathSound = new Audio("../Spacebattle/sounds/enemy-death.wav");
-const backgroundsound= new Audio("../Spacebattle/sounds/backgroundmusic.mp3");
+const backgroundsound = new Audio("../Spacebattle/sounds/backgroundmusic.mp3");
 
 document.getElementById('yesbtn').addEventListener('click', () => {
     console.log("%c Spacebattle", "font-size: 40px");
-    //document.getElementById('msg-div').innerText = `Would you like to play again`;
     location.reload();
 });
 
@@ -234,7 +197,7 @@ document.getElementById('nobtn').addEventListener('click', () => {
     backgroundsound.pause();
     location.reload();
     alert("I really hope you enjoyed my game, thank you so much for playing!");
-    });
+});
 
 document.getElementById('attack').addEventListener('click', () => {
     shipsBattle(USSHelloWorld, fleet[shipNum]);
@@ -248,16 +211,10 @@ document.getElementById('retreat').addEventListener('click', () => {
 let startGame = () => {
     //background sound starts
     backgroundsound.play();
-    
-    document.getElementById('msg').style.display = "none"; 
+    document.getElementById('msg').style.display = "none";
     console.log("%c Spacebattle", "font-size: 40px");
     document.getElementById('msg-div').innerText = `Alien fleet approaching!`;
     document.getElementById('btn-group').style.visibility = "visible";
-    /* playerResponse = window.prompt(
-        "Alien fleet approaching\nWould you like to ATTACK the first ship or RETREAT?",
-        ""
-    ); 
-    checkPlayerPrompt();*/
 };
 
 let button = document.getElementById("btn");
