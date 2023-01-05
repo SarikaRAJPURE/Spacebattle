@@ -52,7 +52,7 @@ EnemyFleet.createalienShips();
 //console.log(EnemyFleet.alienShips);
 let fleet = EnemyFleet.alienShips;
 let loaddata = () => {
-    document.getElementById('msg').innerText = `Aliens have sent ${fleet.length} ships to attack Earth, start the game to attack them.`;
+    document.getElementById('msg').innerText = `Aliens have sent ${fleet.length} ships to attack Earth, start the game to attack them.(Press F11 for full screen mode)`;
     //1. set data of my spaceship on web page
     let myshipname = document.getElementById('my-ship-name');
     myshipname.innerText = USSHelloWorld.name;
